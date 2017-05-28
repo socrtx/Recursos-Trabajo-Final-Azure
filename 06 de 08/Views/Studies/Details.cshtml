@@ -1,0 +1,61 @@
+﻿@model TutorialMVC.Models.Study
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <div class="col-md-12 alert-danger">
+        <div class="row">
+            <div class="col-sm-2 col-lg-2">
+                <br />
+                @Html.ActionLink("< Regresar Listado", "Index", "Studies", new { area = "" }, new { @class = "btn btn-danger" })
+            </div>
+            <div class="col-sm-1 col-lg-1">
+                <img class="img-rounded" src="~/Images/studio.gif" alt="Generic placeholder image" width="70" height="70">
+            </div>
+            <div class="col-sm-9 col-lg-9">
+                <h1 class="h1">
+                    Datos regitro de este estudio
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-area">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-tags"></span></span>
+                        @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Dirección</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Ubicación</label>
+                    <div class="input-group">
+                        <div><iframe width="250" height="150" frameborder="0" src="https://www.bing.com/maps/embed/viewer.aspx?v=3&amp;cp=@Html.DisplayFor(model => model.GoogleMap)&amp;lvl=15&amp;w=250&amp;h=150&amp;sty=r&amp;typ=d&amp;pp=&amp;ps=&amp;dir=0&amp;mkt=es-es&amp;src=SHELL&amp;form=BMEMJS"></iframe></div>                                                                                        </div>
+                </div>
+                @Html.ActionLink("< Cerrar", "Index", "Studies", new { area = "" }, new { @class = "btn btn-danger" })
+            }
+        </div>
+    </div>
+</div>
+

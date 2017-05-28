@@ -1,0 +1,78 @@
+﻿@model IEnumerable<TutorialMVC.Models.Director>
+
+<br />
+<br />
+<br />
+<div id="marketing" class="marketing slide">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/book.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Libros", "Index", "Books", new { area = "" }, new { @class = "btn btn-lg btn-danger btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/studio.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Estudios", "Index", "Studies", new { area = "" }, new { @class = "btn btn-lg btn-primary btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/director.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Directores", "Index", "Directors", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/video.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Reportajes", "Index", "Videos", new { area = "" }, new { @class = "btn btn-lg btn-info btn-block" })</h2>
+
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.container -->
+<div class="about slide">
+    <h1>DIRECTORES</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span> Nombre</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span> Apellidos</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-comment"></span> Biografia</span>
+                </th>
+                <th>
+                    
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span> Fotografia</span>
+                </th>
+                <th></a>@Html.ActionLink("+ Nuevo", "Create", "Directors", new { area = "" }, new { @class = "btn btn-danger" }) </th>           </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirsName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Biography)
+                       
+                    </td>
+                    <td>
+                        <img src="~/Images/@Html.DisplayFor(modelItem => item.Photo)" width="90" height="90">
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modificar", "Edit", new { id = item.DirectorID }, new { @class = "btn btn-sm btn-danger" })
+                        @Html.ActionLink("Ver", "Details", new { id = item.DirectorID }, new { @class = "btn btn-sm btn-info" })
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.DirectorID }, new { @class = "btn btn-sm btn-default" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+</div>
+</div>
+
+
+
+

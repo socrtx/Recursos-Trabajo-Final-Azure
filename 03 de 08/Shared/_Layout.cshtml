@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Master en Desarrollo de Aplicaciones y Servicios para Dispositivos Móviles 2016-2017Karlos</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body id='myPage' data-spy='scroll' data-target='.navbar' data-offset='60'>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="~/Images/azure_logo.png" alt="ayto" height="32px" ></a>
+                
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a class='navbar-brand' href="/" target='_top'><strong><span class='glyphicon glyphicon-home'></span> Inicio</strong></a></li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Componentes <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class = "btn btn-lg btn-danger btn-block" href="#featurette1">Google OAuth</a></li>
+                            <li><a class = "btn btn-lg btn-danger btn-block" href="#featurette2">Entity Framework (EF)</a></li>
+                            <li><a class = "btn btn-lg btn-danger btn-block" href="#featurette3">Bootstrap</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a class = "btn btn-lg btn-danger btn-block" href="#featurette4">Visual Studio Team Services</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="navbar-brand" href="/#about" target='_top'><span class='glyphicon glyphicon-info-sign'></span> Acerca de&nbsp;</a></li>
+                    <li><a class="navbar-brand" href="/#services" target='_top'><span class='glyphicon glyphicon-thumbs-up'></span> Protección de Datos&nbsp;</a></li>
+                    <li><a class='navbar-brand' href="/#contact" target='_top'><span class='glyphicon glyphicon-envelope'></span> Concactar</a></li>
+
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <!-- FOOTER -->
+        <footer role="contentinfo" class="container-fluid text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="/#myPage" title="Subir"><span class="glyphicon glyphicon-chevron-up"></span> </a>
+                        <p>&copy; @DateTime.Now.Year - Master Aplicaciones y Servicios para Móviles 2016-2017 &middot;  CloudComputing - <img src="~/Images/karlos.jpg" class="img-circle" alt="Carlos Blanco Vaquerizo" width="30" height="30"> Karlos <img src="~/Images/ferdy.jpg" class="img-circle" alt="Ferdy Allan Rodriguez Suazo" width="30" height="30"> Ferdy </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+    </div>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

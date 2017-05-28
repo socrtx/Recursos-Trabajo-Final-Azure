@@ -1,0 +1,86 @@
+﻿@model IEnumerable<TutorialMVC.Models.Video>
+
+<br />
+<br />
+<br />
+<div id="marketing" class="marketing slide">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/book.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Libros", "Index", "Books", new { area = "" }, new { @class = "btn btn-lg btn-danger btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/studio.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Estudios", "Index", "Studies", new { area = "" }, new { @class = "btn btn-lg btn-primary btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/director.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Directores", "Index", "Directors", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/video.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Reportajes", "Index", "Videos", new { area = "" }, new { @class = "btn btn-lg btn-info btn-block" })</h2>
+
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.container -->
+<div class="about slide">
+    <h1>REPORTAJES</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-film"></span> Titulo</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> Fecha</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span> Tema</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-comment"></span> Descripción</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-camera"></span> YouTube</span>
+                </th>
+                <th></a>@Html.ActionLink("+ Nuevo", "Create", "Videos", new { area = "" }, new { @class = "btn btn-danger" }) </th>
+             </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <iframe width="250" height="150" src="https://www.youtube.com/embed/@Html.DisplayFor(modelItem => item.Youtube)" frameborder="0" allowfullscreen></iframe>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modificar", "Edit", new { id = item.VideoID }, new { @class = "btn btn-sm btn-danger" })
+                        @Html.ActionLink("Ver", "Details", new { id = item.VideoID }, new { @class = "btn btn-sm btn-info" })
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.VideoID }, new { @class = "btn btn-sm btn-default" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+  </div>
+</div>
+
+
+
+
+
+
+

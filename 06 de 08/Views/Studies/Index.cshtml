@@ -1,0 +1,79 @@
+﻿@model IEnumerable<TutorialMVC.Models.Study>
+
+<br />
+<br />
+<br />
+<div id="marketing" class="marketing slide">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/book.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Libros", "Index", "Books", new { area = "" }, new { @class = "btn btn-lg btn-danger btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/studio.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Estudios", "Index", "Studies", new { area = "" }, new { @class = "btn btn-lg btn-primary btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/director.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Directores", "Index", "Directors", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/video.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Reportajes", "Index", "Videos", new { area = "" }, new { @class = "btn btn-lg btn-info btn-block" })</h2>
+
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.container -->
+<div class="about slide">
+    <h1>ESTUDIOS</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span> Nombre</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-tags"></span> Tipo</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span> Dirección</span>
+                </th>
+                <th>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span> Ubicación</span>
+                </th>
+                <th></a>@Html.ActionLink("+ Nuevo", "Create", "Studies", new { area = "" }, new { @class = "btn btn-danger" }) </th>            
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        <div><iframe width="250" height="150" frameborder="0" src="https://www.bing.com/maps/embed/viewer.aspx?v=3&amp;cp=@Html.DisplayFor(modelItem => item.GoogleMap)&amp;lvl=15&amp;w=250&amp;h=150&amp;sty=r&amp;typ=d&amp;pp=&amp;ps=&amp;dir=0&amp;mkt=es-es&amp;src=SHELL&amp;form=BMEMJS"></iframe></div>                                                                     
+                        
+                        
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modificar", "Edit", new { id = item.StudyID }, new { @class = "btn btn-sm btn-danger" })
+                        @Html.ActionLink("Ver", "Details", new { id = item.StudyID }, new { @class = "btn btn-sm btn-info" })
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.StudyID }, new { @class = "btn btn-sm btn-default" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+
+
+

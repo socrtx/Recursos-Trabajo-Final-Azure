@@ -1,0 +1,68 @@
+﻿@model TutorialMVC.Models.Book
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <div class="col-md-12 alert-danger">
+        <div class="row">
+            <div class="col-sm-2 col-lg-2">
+                <br />
+                @Html.ActionLink("< Regresar Listado", "Index", "Books", new { area = "" }, new { @class = "btn btn-danger" })
+            </div>
+            <div class="col-sm-1 col-lg-1">
+                <img class="img-rounded" src="/Images/book.gif" alt="Generic placeholder image" width="70" height="70">
+            </div>
+            <div class="col-sm-9 col-lg-9">
+                <h1 class="h1">
+                    Datos del regitro de libro
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-area">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label>Titulo</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>ISBN</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
+                        @Html.EditorFor(model => model.Isbn, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Asignatura</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
+                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Precio</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Portada</label>
+                    <div class="input-group">
+                        <img src="~/Images/@Html.DisplayFor(model => model.Frontpage)" width="90" height="140">
+                    </div>
+                </div>
+
+
+                @Html.ActionLink("< Cerrar", "Index", "Books", new { area = "" }, new { @class = "btn btn-danger" })
+            }
+        </div>
+    </div>
+</div>

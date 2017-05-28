@@ -1,0 +1,85 @@
+﻿@model IEnumerable<TutorialMVC.Models.Book>
+<br />
+<br />
+<br />
+<div id="marketing" class="marketing slide">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/book.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Libros", "Index", "Books", new { area = "" }, new { @class = "btn btn-lg btn-danger btn-block" })</h2>
+        </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/studio.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Estudios", "Index", "Studies", new { area = "" }, new { @class = "btn btn-lg btn-primary btn-block" })</h2>
+         </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/director.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Directores", "Index", "Directors", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+         </div>
+        <div class="col-md-3 text-center">
+            <img class="img-rounded" src="~/Images/video.gif" alt="Generic placeholder image" width="140" height="140">
+            <h2>@Html.ActionLink("Reportajes", "Index", "Videos", new { area = "" }, new { @class = "btn btn-lg btn-info btn-block" })</h2>
+ 
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+         <div class="panel-body slide">
+             <h1>LIBROS</h1>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span> Titulo</span>
+                                </th>
+                                <th>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span> ISBN</span>
+                                </th>
+                                <th>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span> Materia</span>
+                                </th>
+                                <th>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span> Precio</span>
+                                </th>
+                                <th>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span> Portada</span>
+                                </th>
+                                <th></a>@Html.ActionLink("+ Nuevo", "Create", "Books", new { area = "" }, new { @class = "btn btn-danger" }) </th>
+                            </tr>
+
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Isbn)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Subject)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td>
+                                        <img src="~/Images/@Html.DisplayFor(modelItem => item.Frontpage)"  width="90" height="140">
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Modificar", "Edit", new { id = item.BookID }, new { @class = "btn btn-sm btn-danger" })
+                                        @Html.ActionLink("Ver", "Details", new { id = item.BookID }, new { @class = "btn btn-sm btn-info" })
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.BookID }, new { @class = "btn btn-sm btn-default" })
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+
+
+
+
